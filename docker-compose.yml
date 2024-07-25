@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  independiente-api:
+    build: ./app1
+    ports:
+      - "4000:4000"
+
+  dependiente-api:
+    build: ./app2
+    ports:
+      - "4001:4001"
+    depends_on:
+      - independiente-api
